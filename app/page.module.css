@@ -1,0 +1,384 @@
+.container {
+  min-height: 100vh;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #fff 0%, #e0e7ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.statusBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(34, 197, 94, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 1px solid rgba(34, 197, 94, 0.5);
+}
+
+.statusDot {
+  width: 10px;
+  height: 10px;
+  background: #22c55e;
+  border-radius: 50%;
+  animation: glow 2s infinite;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.statCard {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.statCard:hover {
+  transform: translateY(-5px);
+}
+
+.statValue {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.statValue.critical {
+  color: #ef4444;
+}
+
+.statValue.success {
+  color: #22c55e;
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.mainContent {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+}
+
+@media (max-width: 968px) {
+  .mainContent {
+    grid-template-columns: 1fr;
+  }
+}
+
+.panicSection {
+  position: sticky;
+  top: 2rem;
+  height: fit-content;
+}
+
+.panicCard {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.panicButton {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 10px 30px rgba(220, 38, 38, 0.4);
+}
+
+.panicButton:hover:not(:disabled) {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(220, 38, 38, 0.6);
+}
+
+.panicButton:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.panicButton.active {
+  animation: pulse 1s infinite;
+}
+
+.panicButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.panicHint {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.countdownContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.countdownNumber {
+  font-size: 8rem;
+  font-weight: 700;
+  color: #ef4444;
+  animation: pulse 1s infinite;
+}
+
+.countdownText {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+
+.cancelButton {
+  padding: 1rem 3rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid white;
+  border-radius: 10px;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.cancelButton:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.alertsSection {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 2rem;
+}
+
+.alertsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.alertsHeader h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.badge {
+  background: rgba(59, 130, 246, 0.3);
+  border: 1px solid rgba(59, 130, 246, 0.5);
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.alertsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: 600px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.alertsList::-webkit-scrollbar {
+  width: 8px;
+}
+
+.alertsList::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.alertsList::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.emptyIcon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  color: #22c55e;
+}
+
+.emptySubtext {
+  opacity: 0.6;
+  font-size: 0.9rem;
+}
+
+.alertCard {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  animation: slideIn 0.3s;
+  transition: all 0.3s;
+}
+
+.alertCard:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateX(5px);
+}
+
+.alertCard.active {
+  border-left: 4px solid #ef4444;
+}
+
+.alertCard.acknowledged {
+  border-left: 4px solid #f59e0b;
+}
+
+.alertCard.resolved {
+  border-left: 4px solid #22c55e;
+  opacity: 0.7;
+}
+
+.alertHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.priorityBadge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.priorityBadge.critical {
+  background: rgba(239, 68, 68, 0.3);
+  border: 1px solid #ef4444;
+  color: #fca5a5;
+}
+
+.priorityBadge.high {
+  background: rgba(245, 158, 11, 0.3);
+  border: 1px solid #f59e0b;
+  color: #fcd34d;
+}
+
+.priorityBadge.medium {
+  background: rgba(59, 130, 246, 0.3);
+  border: 1px solid #3b82f6;
+  color: #93c5fd;
+}
+
+.alertTime {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.alertBody {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.alertIcon {
+  font-size: 2rem;
+}
+
+.alertDetails h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.alertDetails p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 0.25rem;
+}
+
+.alertStatus {
+  text-transform: capitalize;
+}
+
+.alertActions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.alertActions button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ackButton {
+  background: rgba(245, 158, 11, 0.3);
+  border: 1px solid #f59e0b;
+  color: #fcd34d;
+}
+
+.ackButton:hover {
+  background: rgba(245, 158, 11, 0.5);
+}
+
+.resolveButton {
+  background: rgba(34, 197, 94, 0.3);
+  border: 1px solid #22c55e;
+  color: #86efac;
+}
+
+.resolveButton:hover {
+  background: rgba(34, 197, 94, 0.5);
+}
+
+.clearButton {
+  background: rgba(107, 114, 128, 0.3);
+  border: 1px solid #6b7280;
+  color: #d1d5db;
+}
+
+.clearButton:hover {
+  background: rgba(107, 114, 128, 0.5);
+}
